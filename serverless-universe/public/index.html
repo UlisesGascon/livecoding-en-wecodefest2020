@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tor Network Pulse</title>
+		<style>
+            body {
+                background-color: #000;
+                font-family: monospace;
+                color: lightgreen;
+            }
+		</style>
+	</head>
+	<body>
+      <header>
+        <h1>Tor Network Pulse</h1>
+        <p>Let's visualize Tor Network Relays</p>
+      </header>
+        <h3>Current Relays:</h3>
+        <ul id="network">Loading....</ul>
+		<script>
+            const list = document.getElementById("network")
+            const url = "https://onionoo.torproject.org/details"
+            //const url = "http://localhost:3000/api/v1/relays/country/es"
+            //const url = "api/v1/relays/country/es"
+            
+            const showRelays = (relays) => relays.map(relay => `<li>
+                [${relay.fingerprint}] ${relay.nickname} from ${relay.city_name} (${relay.country_name})
+            </li>`).join("")
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    list.innerHTML = showRelays(data.relays)
+                    //list.innerHTML = showRelays(data)
+                })
+                .catch(console.error)
+		</script>
+	</body>
+</html>

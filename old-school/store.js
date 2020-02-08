@@ -15,10 +15,8 @@ const addRelay = (relay) => {
 }
 
 const getAllRelays = async () => {
-  const data = []
   const querySnapshot = await relaysCollection.limit(200).get()
-  querySnapshot.forEach(doc => data.push(doc.data()));
-  return data;
+  return querySnapshot.docs.map(doc => doc.data())
 }
 
 const getRelayDetails = async (fingerprint) => {
@@ -27,10 +25,8 @@ const getRelayDetails = async (fingerprint) => {
 }
 
 const getRelaysByContry = async (countryCode) => {
-  const data = []
   const querySnapshot = await relaysCollection.where('country', '==', countryCode).get()
-  querySnapshot.forEach(doc => data.push(doc.data()));
-  return data;
+  return querySnapshot.docs.map(doc => doc.data())
 }
 
 module.exports = {addRelay, getAllRelays, getRelayDetails, getRelaysByContry}

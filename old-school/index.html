@@ -20,7 +20,8 @@
         <ul id="network">Loading....</ul>
 		<script>
             const list = document.getElementById("network")
-            const url = "https://onionoo.torproject.org/details"
+            //const url = "https://onionoo.torproject.org/details"
+            const url = "http://localhost:3000/api/v1/relays/country/es"
 
             const showRelays = (relays) => relays.map(relay => `<li>
                 [${relay.fingerprint}] ${relay.nickname} from ${relay.city_name} (${relay.country_name})
@@ -29,7 +30,7 @@
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    list.innerHTML = showRelays(data.relays)
+                    list.innerHTML = showRelays(data)
                 })
                 .catch(console.error)
 		</script>

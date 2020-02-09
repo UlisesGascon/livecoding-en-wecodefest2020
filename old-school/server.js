@@ -1,26 +1,29 @@
+const {getAllRelays, getRelayDetails, getRelaysByContry} = require("./store")
 const express = require('express');
 const cors = require('cors')
-const {addRelay, getAllRelays, getRelayDetails, getRelaysByContry} = require('./store')
-
 const app = express();
 
 app.use(cors())
 
 app.get('/api/v1/relays', async (req, res) => {
-  const msg = "All the relays"
-  res.json(msg);
+  const data = await getAllRelays()
+  res.json(data);
 });
 
 app.get('/api/v1/relays/:fingerprint', async (req, res) => {
-  const { fingerprint } = req.params
-  const msg = `The details for relay: ${fingerprint}`
-  res.json(msg);
+   const { fingerprint } = req.params
+  const data = await getRelayDetails(fingerprint)
+  if(!data) {
+     const msg = `The relay you are asking for is not in the database. fingerprint: ${fingerprint}`
+    return  res.status(404).json({msg})
+  }
+  return res.json(data);
 });
 
 app.get('/api/v1/relays/country/:countryCode', async (req, res) => {
-  const { fingerprint } = req.params
-  const msg = `The list of Relays in crontry code: ${fingerprint}`
-  res.json(msg);
+  const { countryCode } = req.params
+  const data = await getRelaysByContry(countryCode)
+  res.json(data);
 });
 
 app.listen(3000, function () {

@@ -75,7 +75,6 @@ _Image by [Firebase](https://firebase.google.com/images/social.png)_
 - [:page_facing_up: Firebase casos de uso](https://firebase.google.com/use-cases)
 
 
-
 ### Objetivo
 
 Nos descargaremos la información de la infraestructura red de TOR (consenso) de [Onionoo](https://onionoo.torproject.org/details). Nos centraremos en los relays exclusivamente (ignorando Bridges, etc...). Cada Relay cuenta con un montón de información relevante:
@@ -201,6 +200,10 @@ Refactorizaremos nuestro proyecto para que funcione en Firebase como una soluci�
 - [firebase-admin](https://www.npmjs.com/package/firebase-admin): _Firebase admin SDK for Node.js_
 - [got](https://www.npmjs.com/package/got): _Human-friendly and powerful HTTP request library for Node.js_
 - [cors](https://www.npmjs.com/package/cors): _Node.js CORS middleware_
+
+### Tienes los PRs post evento aqui:
+- PR #1 [Solution: Old School environment](https://github.com/UlisesGascon/livecoding-en-wecodefest2020/pull/1)
+- PR #2 [Solution: Serverless](https://github.com/UlisesGascon/livecoding-en-wecodefest2020/pull/2)
 
 
 ## [Snippets](snippets.md)

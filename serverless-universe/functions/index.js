@@ -8,5 +8,4 @@ const main = express();
 main.use('/api/v1', app);
 
 exports.relaysApi = functions.https.onRequest(main);
-
 exports.hourlyCrontab = hourlyCronjob

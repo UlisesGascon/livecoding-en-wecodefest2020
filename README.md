@@ -13,7 +13,9 @@ Descripción: En tan solo 30 minutos y haciendo live coding haremos un repaso r�
 
 Tiempo total: 30 mins
 
-Video: _Próximamente_
+## Video del Live Coding
+
+[![Youtube video Thumb](OTHER/img/youtube_video.png)](https://www.youtube.com/watch?v=0j0wNQZK9ws)
 
 
 ## El reto
